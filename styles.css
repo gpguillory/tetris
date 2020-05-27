@@ -1,5 +1,50 @@
+@font-face {
+    font-family: myCommando;
+    src: url('./fonts/commando.ttf');
+}
+
+body {
+    background-image: url('./media/sunsetbackground.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    font-family: myCommando;
+    font-size: 72px;
+    color: transparent;
+			background: linear-gradient(-5deg, #000000 0%,#113e87 22%,#10cccc 50%,#000000 51%,#e21ddc 78%,#e21ddc 78%,#ffffff 100%);
+			-webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 3px white;
+}
+
+#audio-player-container {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    font-family: myCommando;
+    font-size: 24px;
+    color: #F9C80E;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+#button-div {
+    text-align: center;
+}
+
+#start-button {
+    border-radius: 5px;
+}
+
 .container {
     display: flex;
+    justify-content: center;
 }
 
 .grid {
@@ -7,8 +52,9 @@
     height: 400px;
     display: flex;
     flex-wrap: wrap;
-    background-color: yellow;
-
+    background-color: rgb(200,200,200);
+    opacity: 0.9;
+    border: 3px solid black;
 }
 
 .grid div {
@@ -18,7 +64,9 @@
 
 .tetromino {
     background-color: blue;
-}
+    border-radius: 4px;
+    border: -1px solid black;
+   }
 
 .mini-grid {
     margin-left: 50px;
@@ -26,7 +74,9 @@
     height: 80px;
     display: flex;
     flex-wrap: wrap;
-    background-color: yellow;
+    background-color: rgb(200,200,200);
+    opacity: 0.9;
+    border: 3px solid black;
 }
 
 .mini-grid div {

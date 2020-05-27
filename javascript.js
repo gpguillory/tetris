@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let timerId;
     let score = 0;
     const colors = [
-        'orange',
-        'red',
-        'purple',
-        'green',
-        'blue'
+        '#FF6C11',
+        '#FD1D53',
+        '#540D6E',
+        '#F9C80E',
+        '#D40078'
     ]
 
 // The Tetrominoes
@@ -141,13 +141,17 @@ function moveRight() {
 
 //rotate the tetromino
 function rotate() {
-    undraw();
-    currentRotation ++;
-    if(currentRotation === current.length) {//if current rotation is 4, reset to 0
-        currentRotation = 0;
-    }
+    const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0);
+    const isAtRightEdge = current.some(index => (currentPosition + index) % width === (width - 1));
+    if (!(isAtLeftEdge | isAtRightEdge)) {
+        undraw();
+        currentRotation ++;
+        if(currentRotation === current.length) {//if current rotation is 4, reset to 0
+           currentRotation = 0;
+         }
     current = theTetrominoes[random][currentRotation];
     draw();
+    }
 }
 
 //show up-next tetromino in mini-grid display
@@ -214,10 +218,27 @@ startBtn.addEventListener('click', () => {
 // game over
 function gameOver() {
     if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-        scoreDisplay.innerHTML = 'end';
+        scoreDisplay.innerHTML = score + ' - Game Over';
         clearInterval(timerId);
     }
 }
+
+// double play speed every 100 points
+
+function doubleSpeed() {
+    if (score > 100 && score < 200) {
+        timerId = setInterval(moveDown, 500);
+    } else if (score >= 200 && score < 300) {
+        timerId = setInterval(moveDown, 250);
+    } else if (score >= 300 && score < 400) {
+        timerId = setInterval(moveDown, 125);
+    } else if (score >= 400 && score < 500) {
+        timerId = setInterval(moveDown, 62.5);
+    } else if (score >= 500 && score < 600) {
+        timerId = setInterval(moveDown, 31.25);
+    }
+}
+
 
 });
 
