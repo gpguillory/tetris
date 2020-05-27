@@ -3,17 +3,17 @@
     <head>
         <link rel="stylesheet" href="styles.css">
         <h1>Tetris</h1>
-            <div id="audio-player-container">
-                <audio loop controls="controls">
-                <source src="./media/tetris_theme.mp3" type="audio/mpeg" />
-                Your browser does not support the audio element.
-                </audio>
+            
             </div>
     </head>
     <body>
         <h3>Score: <span id="score">0</span></h3>
+        <audio loop id="audio">
+            <source src="./media/tetris_theme.mp3" type="audio/mpeg">
+        </audio>
         <div id='button-div'>
             <button id="start-button">Start/Pause</button>
+            
         </div>
         <br>
     <div class ="container">

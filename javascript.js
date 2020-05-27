@@ -187,11 +187,13 @@ startBtn.addEventListener('click', () => {
     if (timerId) {
         clearInterval(timerId)
         timerId = null;
+        pauseAudio();
     } else {
         draw();
         timerId = setInterval(moveDown, 1000);
         nextRandom = Math.floor(Math.random()*theTetrominoes.length);
         displayShape();
+        playAudio();
     }
 })
 
@@ -220,6 +222,7 @@ function gameOver() {
     if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
         scoreDisplay.innerHTML = score + ' - Game Over';
         clearInterval(timerId);
+        pauseAudio();
     }
 }
 
@@ -239,6 +242,14 @@ function doubleSpeed() {
     }
 }
 
+function playAudio() {
+    var audio = document.getElementById("audio");
+    audio.play();
+}
+
+function pauseAudio() {
+    audio.pause();
+}
 
 });
 
