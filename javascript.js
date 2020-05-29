@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         '#F9C80E',
         '#D40078'
     ]
+    
+    let yesButton = document.querySelector('yes-button');
+    let noButton = document.querySelector('no-button');
 
 // The Tetrominoes
 const lTetromino = [
@@ -223,6 +226,7 @@ function gameOver() {
         scoreDisplay.innerHTML = score + ' - Game Over';
         clearInterval(timerId);
         pauseAudio();
+        showGameOverScreen();
     }
 }
 
@@ -251,5 +255,16 @@ function pauseAudio() {
     audio.pause();
 }
 
-});
+var modal = document.getElementById('myModal');
+//var span = document.getElementsByClassName('close-btn'[0]);
 
+function showGameOverScreen() {
+    modal.style.display = 'block';
+}
+
+
+
+
+
+
+});
