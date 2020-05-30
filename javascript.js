@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
         '#540D6E',
         '#F9C80E',
         '#D40078',
-        'blue'
+        'blue',
+        'green'
     ]
     
     let yesButton = document.querySelector('yes-button');
@@ -41,6 +42,13 @@ const zTetromino = [
     [width+1, width+2, width*2, width*2+1]
 ]
 
+const rzTetromino = [
+    [1, width+1, width, width*2],
+    [0, 1, width+1, width+2],
+    [1, width+1, width, width*2],
+    [0, 1, width+1, width+2]
+]
+
 const tTetromino = [
     [1, width, width+1, width+2],
     [1, width+1, width+2, width*2+1],
@@ -62,7 +70,7 @@ const iTetromino = [
     [width, width+1, width+2, width+3]
 ]
 
-const theTetrominoes = [lTetromino, rlTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
+const theTetrominoes = [lTetromino, rlTetromino, zTetromino, rzTetromino, tTetromino, oTetromino, iTetromino];
 
 let currentPosition = 4;
 let currentRotation = 0;
@@ -176,6 +184,7 @@ const upNextTetrominoes = [
     [1, displayWidth+1, displayWidth*2+1, 2], //lTetromino
     [3, displayWidth+1, displayWidth+2, displayWidth+3], //rlTetromino
     [1, displayWidth+1, displayWidth+2, displayWidth*2+2], //zTetromino
+    [0, 1, displayWidth+1, displayWidth+2], //rzTetrominos
     [1, displayWidth, displayWidth+1, displayWidth+2], //tTetromino
     [displayWidth+1, displayWidth+2, displayWidth*2+1, displayWidth*2+2], //oTetromino
     [1, displayWidth+1, displayWidth*2+1, displayWidth*3+1] //iTetromino
