@@ -21,10 +21,6 @@ h1 {
             -webkit-text-stroke: 3px white;
 }
 
-#audio-player-container {
-    text-align: center;
-}
-
 h3 {
     text-align: center;
     font-family: myCommando;
@@ -39,7 +35,13 @@ h3 {
 }
 
 #start-button {
-    border-radius: 5px;
+    font-size: 24px;
+    border-radius: 10px;
+    color: #F9C80E;
+    background: linear-gradient(-5deg, #000000 0%,#113e87 22%,#10cccc 50%,#000000 51%,#e21ddc 78%,#e21ddc 78%,#ffffff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: #F9C80E;
+        -webkit-text-stroke: 1px white;
 }
 
 .container {

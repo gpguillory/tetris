@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
         '#FD1D53',
         '#540D6E',
         '#F9C80E',
-        '#D40078'
+        '#D40078',
+        'blue'
     ]
     
     let yesButton = document.querySelector('yes-button');
@@ -24,6 +25,13 @@ const lTetromino = [
     [width, width+1, width+2, width*2+2],
     [1, width+1, width*2+1, width*2],
     [width, width*2, width*2+1, width*2+2]
+]
+
+const rlTetromino = [
+    [2, width, width+1, width+2],
+    [0, 1, width+1, width*2+1],
+    [0, 1, 2, width],
+    [0, width, width*2, width*2+1]
 ]
 
 const zTetromino = [
@@ -54,7 +62,7 @@ const iTetromino = [
     [width, width+1, width+2, width+3]
 ]
 
-const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
+const theTetrominoes = [lTetromino, rlTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
 
 let currentPosition = 4;
 let currentRotation = 0;
@@ -166,9 +174,10 @@ let displayIndex = 0;
 //the Tetrominos without rotations
 const upNextTetrominoes = [
     [1, displayWidth+1, displayWidth*2+1, 2], //lTetromino
-    [0, displayWidth, displayWidth+1, displayWidth*2+1], //zTetromino
+    [3, displayWidth+1, displayWidth+2, displayWidth+3], //rlTetromino
+    [1, displayWidth+1, displayWidth+2, displayWidth*2+2], //zTetromino
     [1, displayWidth, displayWidth+1, displayWidth+2], //tTetromino
-    [0, 1, displayWidth, displayWidth+1], //oTetromino
+    [displayWidth+1, displayWidth+2, displayWidth*2+1, displayWidth*2+2], //oTetromino
     [1, displayWidth+1, displayWidth*2+1, displayWidth*3+1] //iTetromino
 ]
 
@@ -223,7 +232,6 @@ startBtn.addEventListener('click', () => {
 // game over
 function gameOver() {
     if (current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
-        scoreDisplay.innerHTML = score + ' - Game Over';
         clearInterval(timerId);
         pauseAudio();
         showGameOverScreen();
